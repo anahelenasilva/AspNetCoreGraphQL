@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31229.75
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarvedRock.Api", "CarvedRock.Api\CarvedRock.Api.csproj", "{9CEA17E1-B0B4-4F0E-9D1B-FE279F9F6DDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CEA17E1-B0B4-4F0E-9D1B-FE279F9F6DDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CEA17E1-B0B4-4F0E-9D1B-FE279F9F6DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CEA17E1-B0B4-4F0E-9D1B-FE279F9F6DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CEA17E1-B0B4-4F0E-9D1B-FE279F9F6DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4EE260A0-8804-4B0F-A2EA-79FB21A1E9AF}
+	EndGlobalSection
+EndGlobal
