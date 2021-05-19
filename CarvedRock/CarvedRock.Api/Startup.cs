@@ -39,6 +39,7 @@ namespace CarvedRock.Api
             //services.AddDbContext<CarvedRockDbContext>(options => options.UseSqlServer(_config["ConnectionStrings:CarvedRock"]));
 
             services.AddSingleton<ProductRepository>();
+            services.AddSingleton<ProductReviewRepository>();
 
             services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             services.AddScoped<CarvedRockSchema>();
