@@ -50,7 +50,8 @@ namespace CarvedRock.Api
                 //o.ComplexityConfiguration =
                 //o.ExposeExceptions //on by default
             })
-            .AddGraphTypes(ServiceLifetime.Scoped);
+            .AddGraphTypes(ServiceLifetime.Scoped)
+            .AddDataLoader();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
