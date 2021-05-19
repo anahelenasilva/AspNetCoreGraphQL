@@ -6,6 +6,19 @@ namespace CarvedRock.Api.Data.Entities
 {
     public class Product
     {
+        public Product()
+        { }
+
+        public Product(int id, string name, ProductType type, string description, decimal price)
+        {
+            Id = id;
+            Name = name;
+            Type = type;
+            Description = description;
+            Price = price;
+            IntroducedAt = DateTime.Now;
+        }
+
         public int Id { get; set; }
 
         [StringLength(100)]

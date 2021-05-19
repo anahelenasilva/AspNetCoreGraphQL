@@ -36,7 +36,7 @@ namespace CarvedRock.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<CarvedRockDbContext>(options => options.UseSqlServer(_config["ConnectionStrings:CarvedRock"]));
+            //services.AddDbContext<CarvedRockDbContext>(options => options.UseSqlServer(_config["ConnectionStrings:CarvedRock"]));
 
             services.AddSingleton<ProductRepository>();
 
@@ -53,11 +53,11 @@ namespace CarvedRock.Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, CarvedRockDbContext dbContext)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseGraphQL<CarvedRockSchema>();
             app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
-            dbContext.Seed();
+            //dbContext.Seed();
         }
     }
 }
