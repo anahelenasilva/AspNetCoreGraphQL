@@ -46,12 +46,16 @@ namespace CarvedRock.Api
 
             services.AddGraphQL(o =>
             {
-                o.ExposeExceptions = true;
+                o.ExposeExceptions = _env.IsDevelopment();
                 //o.ComplexityConfiguration =
                 //o.ExposeExceptions //on by default
             })
             .AddGraphTypes(ServiceLifetime.Scoped)
+            .AddUserContextBuilder(httpContext => httpContext.User)
             .AddDataLoader();
+            //.AddWebSockets();
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
