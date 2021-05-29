@@ -33,6 +33,7 @@ namespace CarvedRock.Api
 
             services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             services.AddScoped<CarvedRockSchema>();
+            services.AddSingleton<ReviewMessageService>();
 
             services.AddGraphQL(o =>
             {
