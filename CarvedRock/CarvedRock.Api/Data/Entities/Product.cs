@@ -7,9 +7,11 @@ namespace CarvedRock.Api.Data.Entities
     public class Product
     {
         public Product()
-        { }
+        {
+            PhotoFileName = "file.png";
+        }
 
-        public Product(int id, string name, ProductType type, string description, decimal price)
+        public Product(int id, string name, ProductType type, string description, decimal price, string fileName)
         {
             Id = id;
             Name = name;
@@ -17,6 +19,7 @@ namespace CarvedRock.Api.Data.Entities
             Description = description;
             Price = price;
             IntroducedAt = DateTime.Now;
+            PhotoFileName = fileName;
         }
 
         public int Id { get; set; }

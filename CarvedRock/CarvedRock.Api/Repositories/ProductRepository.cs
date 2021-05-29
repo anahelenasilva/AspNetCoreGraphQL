@@ -17,10 +17,11 @@ namespace CarvedRock.Api.Repositories
             //_dbContext = dbContext;
             products = new List<Product>
             {
-                new Product(1, "Product #1", ProductType.Boots, "Product #1 Description", 100),
-                new Product(2, "Product #2", ProductType.ClimbingGear, "Product #2 Description", 200),
-                new Product(3, "Product #3", ProductType.Boots, "Product #3 Description", 300),
-                new Product(5, "Product #4", ProductType.Kayaks, "Product #4 Description", 400),
+                new Product(1, "Product #1", ProductType.Boots, "Product #1 Description", 100, "shutterstock_66842440.jpg"),
+                new Product(2, "Product #2", ProductType.ClimbingGear, "Product #2 Description", 200, "shutterstock_48040747.jpg"),
+                new Product(2, "Product #2.2", ProductType.ClimbingGear, "Product #2.2 Description", 220, "shutterstock_6170527.jpg"),
+                new Product(3, "Product #3", ProductType.Boots, "Product #3 Description", 300, "shutterstock_222721876.jpg"),
+                new Product(5, "Product #4", ProductType.Kayaks, "Product #4 Description", 400, "shutterstock_441989509.jpg"),
             };
         }
 

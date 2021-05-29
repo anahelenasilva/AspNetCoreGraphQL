@@ -1,43 +1,46 @@
-﻿using CarvedRock.Web.Models;
+﻿using System.Threading.Tasks;
+using CarvedRock.Web.Clients;
+using CarvedRock.Web.HttpClients;
+using CarvedRock.Web.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CarvedRock.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly ProductHttpClient _httpClient;
+        private readonly ProductGraphClient _productGraphClient;
+
+        public HomeController(ProductHttpClient httpClient,
+            ProductGraphClient productGraphClient)
         {
-            return View();
+            _httpClient = httpClient;
+            _productGraphClient = productGraphClient;
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> Index()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            var responseModel = await _httpClient.GetProducts();
+            responseModel.ThrowErrors();
+            return View(responseModel.Data.Products);
         }
 
-        public IActionResult Contact()
+        public async Task<IActionResult> ProductDetail(int productId)
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            var product = await _productGraphClient.GetProduct(productId);
+            return View(product);
         }
 
-        public IActionResult Privacy()
+        public IActionResult AddReview(int productId)
         {
-            return View();
+            return View(new ProductReviewModel { ProductId = productId });
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public async Task<IActionResult> AddReview(ProductReviewInputModel reviewModel)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            await _productGraphClient.AddReview(reviewModel);
+            return RedirectToAction("ProductDetail", new { productId = reviewModel.ProductId });
         }
     }
 }

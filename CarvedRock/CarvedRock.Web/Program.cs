@@ -19,6 +19,7 @@ namespace CarvedRock.Web
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseUrls("https://localhost:44346")
                 .UseStartup<Startup>();
     }
 }

@@ -17,8 +17,8 @@ namespace CarvedRock.Api.Repositories
         {
             //_dbContext = dbContext;
 
-            var product1 = new Product(1, "Produto 1", ProductType.Boots, "Descrição Produto 1", 100);
-            var product2 = new Product(2, "Produto 2", ProductType.ClimbingGear, "Descrição Produto 2", 200);
+            var product1 = new Product(1, "Product #1", ProductType.Boots, "Product #1 Description", 100, "shutterstock_66842440.jpg");
+            var product2 = new Product(2, "Product #2", ProductType.ClimbingGear, "Product #2 Description", 200, "shutterstock_48040747.jpg");
 
             reviews = new List<ProductReview>
             {
@@ -43,6 +43,15 @@ namespace CarvedRock.Api.Repositories
 
             var reviewsList = reviews.Where(pr => productIds.Contains(pr.ProductId)).ToList();
             return await Task.FromResult(reviewsList.ToLookup(r => r.ProductId));
+        }
+
+        public async Task<ProductReview> AddReview(ProductReview review)
+        {
+            //_dbContext.ProductReviews.Add(review);
+            //await _dbContext.SaveChangesAsync();
+
+            reviews.Add(review);
+            return review;
         }
     }
 }
