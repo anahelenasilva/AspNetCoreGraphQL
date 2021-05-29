@@ -43,8 +43,8 @@ namespace CarvedRock.Api
             })
             .AddGraphTypes(ServiceLifetime.Scoped)
             .AddUserContextBuilder(httpContext => httpContext.User)
-            .AddDataLoader();
-            //.AddWebSockets();
+            .AddDataLoader()
+            .AddWebSockets();
 
             services.AddCors();
         }
@@ -53,6 +53,9 @@ namespace CarvedRock.Api
         {
             //not to the be used in production
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+            app.UseWebSockets();
+            app.UseGraphQLWebSockets<CarvedRockSchema>("/graphql");
 
             app.UseGraphQL<CarvedRockSchema>();
             app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
